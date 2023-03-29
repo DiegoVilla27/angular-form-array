@@ -1,0 +1,60 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="handlerSubmit()"
+  (keydown.enter)="$event.preventDefault()"
+>
+  <!-- NAME -->
+  <div>
+    <input
+      formControlName="name"
+      placeholder="Name user..."
+      [ngClass]="{
+        'border-green': validInput(form.get('name')!),
+        'border-red': invalidInput(form.get('name')!)
+      }"
+    />
+    <app-error-msg
+      [list]="validationsMessages.name"
+      [controlRef]="form.get('name')!"
+    >
+    </app-error-msg>
+  </div>
+  <!-- TEXT -->
+  <div>
+    <input
+      formControlName="role"
+      placeholder="Rol user..."
+      [ngClass]="{
+        'border-red': invalidInput(form.get('role')!)
+      }"
+    />
+    <button class="btn-new" type="button" (click)="addRole()">Add Role</button>
+    <app-error-msg
+      [list]="validationsMessages.role"
+      [controlRef]="form.get('role')!"
+    >
+    </app-error-msg>
+  </div>
+  <!-- ARRAY ROLES -->
+  <ng-container
+    formArrayName="roles"
+    *ngFor="let role of roles.controls; let i = index"
+  >
+    <app-roles
+      [role]="role"
+      [index]="i"
+      [validationsMessages]="validationsMessages.roles"
+      (editRole)="editRole($event)"
+      (removeRole)="removeRole($event)"
+    ></app-roles>
+  </ng-container>
+  <hr />
+  <button type="submit">Submit !!!</button>
+</form>
+
+<div>
+  <pre>
+    {{ form.valid }}
+    {{ form.value | json }}
+  </pre>
+</div>

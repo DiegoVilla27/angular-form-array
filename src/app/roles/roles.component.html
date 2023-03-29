@@ -1,0 +1,11 @@
+<div [formGroup]="role">
+  <input formControlName="name" type="text" placeholder="Name Role..." />
+  <button class="btn-edit" type="button" (click)="handlerEdit(index, role)">
+    Edit
+  </button>
+  <button class="btn-remove" type="button" (click)="handlerRemove(index)">
+    Remove
+  </button>
+  <app-error-msg [list]="validationsMessages" [controlRef]="role.get('name')!">
+  </app-error-msg>
+</div>
