@@ -1,0 +1,50 @@
+<button
+  type="button"
+  (click)="addAddress()"
+>
+  Add More Address!
+</button>
+<br /><br />
+<form
+  [formGroup]="form"
+  autocomplete="off"
+>
+  <input
+    type="text"
+    placeholder="Name"
+    formControlName="name"
+  />
+  <app-message-alert
+    [list]="validations.name"
+    [controlRef]="form.get('name')!"
+  />
+  <input
+    type="number"
+    placeholder="Age"
+    formControlName="age"
+  />
+  <app-message-alert
+    [list]="validations.age"
+    [controlRef]="form.get('age')!"
+  />
+  <ng-container
+    formArrayName="addresses"
+    *ngFor="let address of addressesForm; let i = index"
+  >
+    <app-address
+      [address]="address"
+      [index]="i"
+      [validations]="validations.address"
+      (deleteAddress)="deleteAddress($event)"
+    />
+  </ng-container>
+  <button
+    type="submit"
+    (click)="submit()"
+  >
+    Save user!
+  </button>
+</form>
+
+<pre>VALID: {{ form.valid | json }}</pre>
+<pre>JSON: {{ form.value | json }}</pre>

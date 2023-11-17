@@ -1,0 +1,9 @@
+<div [formGroup]="address">
+  <input
+    formControlName="address"
+    placeholder="Address"
+    type="text"
+  />
+  <button (click)="handlerDelete(index)">Delete</button>
+  <app-message-alert [list]="validations" [controlRef]="address.get('address')!"/>
+</div>
