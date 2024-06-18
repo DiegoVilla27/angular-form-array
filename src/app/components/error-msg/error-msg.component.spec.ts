@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { MessageAlertComponent } from "./message-alert.component";
+import { MessageAlertComponent } from "./error-msg.component";
 
 describe("MessageAlertComponent", () => {
   let component: MessageAlertComponent;

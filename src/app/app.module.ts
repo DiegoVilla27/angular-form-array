@@ -6,7 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { AddressComponent } from "./pages/components/address/address.component";
 import { UserWithArrayComponent } from "./pages/user-with-array/user-with-array.component";
-import { MessageAlertModule } from "./components/message-alert/message-alert.module";
+import { ErrorMsgModule } from "./components/error-msg/error-msg.module";
 
 @NgModule({
   declarations: [AppComponent, UserWithArrayComponent, AddressComponent],
@@ -14,8 +14,8 @@ import { MessageAlertModule } from "./components/message-alert/message-alert.mod
     BrowserModule,
     CommonModule,
     FormsModule,
-    MessageAlertModule,
     ReactiveFormsModule,
+    ErrorMsgModule,
     AppRoutingModule
   ],
   providers: [],

@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { IMessageAlertUser, validation_messages } from "./validations";
+import { validations } from "./validations";
+import { IErrorMsg } from "../../components/error-msg/error-msg.component";
 
 interface IAddress {
   address: string;
@@ -25,7 +26,7 @@ const mock: IUser = {
 })
 export class UserWithArrayComponent {
   form!: FormGroup;
-  validations: IMessageAlertUser = validation_messages;
+  validations: IErrorMsg = validations;
 
   constructor(private _fB: FormBuilder) {
     this.buildData();

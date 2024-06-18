@@ -5,5 +5,5 @@
     type="text"
   />
   <button (click)="handlerDelete(index)">Delete</button>
-  <app-message-alert [list]="validations" [controlRef]="address.get('address')!"/>
+  <app-error-msg [form]="address" [list]="validations" [type]="'address'"/>
 </div>

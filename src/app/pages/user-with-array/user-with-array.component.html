@@ -14,18 +14,20 @@
     placeholder="Name"
     formControlName="name"
   />
-  <app-message-alert
-    [list]="validations.name"
-    [controlRef]="form.get('name')!"
+  <app-error-msg
+    [form]="form"
+    [list]="validations['name']"
+    [type]="'name'"
   />
   <input
     type="number"
     placeholder="Age"
     formControlName="age"
   />
-  <app-message-alert
-    [list]="validations.age"
-    [controlRef]="form.get('age')!"
+  <app-error-msg
+    [form]="form"
+    [list]="validations['age']"
+    [type]="'age'"
   />
   <ng-container
     formArrayName="addresses"
@@ -34,7 +36,7 @@
     <app-address
       [address]="address"
       [index]="i"
-      [validations]="validations.address"
+      [validations]="validations['address']"
       (deleteAddress)="deleteAddress($event)"
     />
   </ng-container>
@@ -46,5 +48,11 @@
   </button>
 </form>
 
-<pre>VALID: {{ form.valid | json }}</pre>
-<pre>JSON: {{ form.value | json }}</pre>
+<div class="valid">
+  VALID:
+  <div
+    class="valid-circle"
+    [ngStyle]="{ 'background-color': form.valid ? 'green' : 'red' }"
+  ></div>
+</div>
+<pre>FORM: {{ form.value | json }}</pre>

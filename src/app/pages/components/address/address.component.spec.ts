@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { AddressComponent } from "./address.component";
-import { MessageAlertModule } from "../../../components/message-alert/message-alert.module";
+import { MessageAlertModule } from "../../../components/error-msg/error-msg.module";
 import {
   FormBuilder,
   FormGroup,

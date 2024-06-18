@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import { IValidation } from "../../../components/message-alert/message-alert.component";
+import { IValidation } from "../../../components/error-msg/error-msg.component";
 
 @Component({
   selector: "app-address",
